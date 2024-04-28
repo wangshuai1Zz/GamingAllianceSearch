@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    主页
+  <div class="Team">
+    组队
   </div>
 </template>
 

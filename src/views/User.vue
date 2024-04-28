@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    主页
+  <div class="User">
+    用户
   </div>
 </template>
 
