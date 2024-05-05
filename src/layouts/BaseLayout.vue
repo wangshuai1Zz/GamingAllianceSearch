@@ -1,7 +1,7 @@
 <template>
     <van-nav-bar title="标题" left-arrow class="topBar" fixed safe-area-inset-top placeholder>
         <template #right>
-            <van-icon name="search" size="18" />
+            <van-icon name="search" size="18" @click="goSearch" />
         </template>
     </van-nav-bar>
     <router-view />
@@ -17,15 +17,9 @@ import { NavBar } from 'vant';
 import { Tabbar, TabbarItem } from 'vant';
 import { ref } from 'vue';
 
-
+const goSearch = () => {
+    console.log('goSearch');
+};
 </script>
 
-<style scoped>
-/* 禁止文本选择 */
-.van-tabbar-item {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-</style>
+<style lang="scss" scoped></style>

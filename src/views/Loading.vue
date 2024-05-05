@@ -15,10 +15,14 @@
 import { } from "vue"
 import { Loading } from 'vant';
 import { ref } from 'vue';
+import { LoadingStore } from '../pinia/pinia'
 
+const loadingStore = LoadingStore();
+console.log(loadingStore.show);
+const loading = loadingStore.show === false
 const show = ref(true);
 const onClickOverlay = () => {
-    show.value = false;
+    show.value = loading;
 };
 </script>
 

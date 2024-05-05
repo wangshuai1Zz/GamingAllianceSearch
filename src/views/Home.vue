@@ -2,6 +2,9 @@
   <div class="home">
     主页
   </div>
+  <div class="nes-field">
+    <input type="text" id="name_field" class="nes-input">
+  </div>
 </template>
 
 <script setup>
