@@ -5,8 +5,16 @@ import Loading from './views/Loading.vue';
 </script>
 
 <template>
-  <BaseLayout />
-  <Loading />
+  <div class="admin">
+    <BaseLayout />
+    <Loading />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.admin {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+</style>
