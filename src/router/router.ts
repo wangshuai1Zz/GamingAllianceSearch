@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue';
-import Team from '../views/Team.vue';
-import User from '../views/User.vue';
-import Search from '../views/Search.vue';
+import Home from '../views/Home/Home.vue';
+import Team from '../views/Team/Team.vue';
+import User from '../views/User/User.vue';
+import Search from '../views/Search/Search.vue';
 // Import your views/components here
 
 const routes: Array<RouteRecordRaw> = [

@@ -5,9 +5,12 @@
                 <van-icon name="search" size="18" @click="goSearch" />
             </template>
         </van-nav-bar>
-        <div class="content">
+        <div class="main">
             <router-view />
         </div>
+        <footer class="footer">
+            by shuaiwang
+        </footer>
         <van-tabbar route fixed placeholder safe-area-inset-bottom class="tabBar">
             <van-tabbar-item replace to="/" icon="home-o" name="home">主页</van-tabbar-item>
             <van-tabbar-item replace to="/team" icon="friends-o" name="Team">组队</van-tabbar-item>
@@ -33,16 +36,18 @@ const Back = () => history.back();
 .BaseLayout {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 }
 
-.content {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    align-items: center; // 垂直居中
-    justify-content: center; // 水平居中
-    width: 100%;
-    margin-top: 1px;
+.topBar,
+.tabBar,
+.footer {
+    flex-shrink: 0;
+}
+
+.main {
+    flex-grow: 1;
+    overflow: auto;
+    touch-action: none;
 }
 </style>
