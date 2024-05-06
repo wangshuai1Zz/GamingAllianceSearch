@@ -48,6 +48,5 @@ const Back = () => history.back();
 .main {
     flex-grow: 1;
     overflow: auto;
-    touch-action: none;
 }
 </style>
