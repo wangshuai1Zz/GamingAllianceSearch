@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue"
+import { ref, watch, computed } from "vue"
 import { Tag } from 'vant';
 import { TreeSelect } from 'vant';
 
@@ -106,28 +106,27 @@ const initTags = ref([
 ]);
 
 const tags = ref(initTags.value);
-watch(() => props.Search, (newSearch) => {
-    if (newSearch) {
-        const filteredTags = initTags.value.reduce((acc, item) => {
-            // 检查外部 text 是否匹配
-            if (item.text.includes(newSearch)) {
-                acc.push(item); // 保留整个 item
-            } else {
-                // 检查内部 text 是否匹配
-                const matchedChildren = item.children.filter((child) =>
-                    child.text.includes(newSearch)
-                );
-                if (matchedChildren.length > 0) {
-                    acc.push({ ...item, children: matchedChildren }); // 保留 item 的 text 和匹配的 children
-                }
-            }
-            return acc;
-        }, []);
-        tags.value = filteredTags;
-    } else {
-        // 如果搜索值为空，则恢复原始标签
-        tags.value = initTags.value;
+watch(() => props.Search, () => {
+    tags.value = filteredTags.value;
+});
+const filteredTags = computed(() => {
+    const newSearch = props.Search;
+    if (!newSearch) {
+        return initTags.value;
     }
+    return initTags.value.reduce((acc, item) => {
+        if (item.text.includes(newSearch)) {
+            acc.push(item);
+        } else {
+            const matchedChildren = item.children.filter(child =>
+                child.text.includes(newSearch)
+            );
+            if (matchedChildren.length > 0) {
+                acc.push({ ...item, children: matchedChildren });
+            }
+        }
+        return acc;
+    }, []);
 });
 const getTags = (item) => {
     show.value = true;
