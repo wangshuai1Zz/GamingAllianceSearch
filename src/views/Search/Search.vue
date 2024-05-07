@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <div class="Search">
-            <searchInput />
+            <searchInput @getInput="getSearchChange" />
         </div>
         <div class="chooseTag">
-            <chooseTag />
+            <chooseTag :Search="SearchChange" />
         </div>
     </div>
 </template>
@@ -14,6 +14,11 @@ import { onMounted, ref } from "vue"
 import { Col, Row, Form, } from 'vant';
 import chooseTag from './chooseTag.vue'
 import SearchInput from "./SearchInput.vue";
+
+const SearchChange = ref('');
+const getSearchChange = (value) => {
+    SearchChange.value = value;
+};
 </script>
 
 <style lang="scss" scoped>
